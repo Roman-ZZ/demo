@@ -1,0 +1,50 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>留言板</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+
+ <div  id="container">
+  <div id="header" >
+    <h1 >留言板</h1>
+  </div>
+  <img src="/Users/apple/Downloads/picture.jpg" id="picture" ; >
+  <textarea id="content" ></textarea>
+  <br>
+  <button type="submit" id="submit" >提交</button> 
+ </div>
+  <div id="board" style="overflow-y:auto;"></div>
+</body>
+
+<script >
+  var A = document.getElementById("submit");
+  A.addEventListener("click", function(){
+    var y = document.getElementById("board");
+    var d = new Date();
+    var year = d.getFullYear();
+    var month = d.getMonth()+1;
+    var date1 = d.getDate();
+    var hour = d.getHours();
+    var minutes = d.getMinutes();
+    var second = d.getSeconds();
+    var x = document.getElementById("content").value;
+    if (x == null || x == ""){
+      alert("内容不能为空");
+      document.getElementById("board").value = "";
+    }else{
+      var div = document.createElement("div");
+      var img = document.createElement("img");
+      img.src = "/Users/apple/Downloads/picture.jpg";
+      img.id = "newimg"
+      div.append(img);
+      div.innerHTML = '<img id="newimg" src="/Users/apple/Downloads/picture.jpg" />' + x+ year + "年"              +month + "月" + date1 + "日" + hour + "：" + minutes +"："+second;
+      y.append(div);
+    }
+    
+  });
+  
+</script>
+</html>
